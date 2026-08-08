@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-08T16:04:16.463572-05:00",
+  "candidates": [
+    "big-pickle",
+    "deepseek-v4-flash-free",
+    "laguna-s-2.1-free",
+    "ling-3.0-flash-free",
+    "ling-3.0-tiny-free",
+    "longcat-2.0-free",
+    "mimo-v2.5-free",
+    "nemotron-3-ultra-free",
+    "north-mini-code-free"
+  ],
+  "live": [
+    "deepseek-v4-flash-free",
+    "nemotron-3-ultra-free",
+    "mimo-v2.5-free",
+    "big-pickle",
+    "ling-3.0-flash-free",
+    "ling-3.0-tiny-free",
+    "laguna-s-2.1-free",
+    "longcat-2.0-free"
+  ],
+  "dead": [
+    "north-mini-code-free"
+  ]
+}
