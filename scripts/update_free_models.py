@@ -12,6 +12,7 @@ Exit code 0 if no change, 1 if config was regenerated.
 """
 import datetime
 import json
+import os
 import pathlib
 import sys
 import time
@@ -50,6 +51,9 @@ ROUTER_TECH_KEYWORDS = ["kubernetes", "docker", "github", "postgresql", "snowfla
 
 
 def get_opencode_key() -> str:
+    env_key = os.environ.get("OPENCODE_API_KEY", "").strip()
+    if env_key:
+        return env_key
     if not ENV.exists():
         sys.exit(f"Missing {ENV}")
     for line in ENV.read_text().splitlines():
