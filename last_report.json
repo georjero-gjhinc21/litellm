@@ -1,11 +1,10 @@
 {
-  "generated_at": "2026-08-13T05:16:05.285184+00:00",
+  "generated_at": "2026-08-14T05:13:14.368321+00:00",
   "candidates": [
     "big-pickle",
     "deepseek-v4-flash-free",
     "hy3-free",
     "laguna-s-2.1-free",
-    "ling-3.0-tiny-free",
     "mimo-v2.5-free",
     "nemotron-3-ultra-free",
     "nemotron-3.5-lightning-free"
