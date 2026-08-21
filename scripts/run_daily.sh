@@ -18,6 +18,9 @@ CHANGED=0
 python3 scripts/update_free_models.py && CHANGED=0 || CHANGED=$?
 if [ "$CHANGED" -eq 1 ]; then
     echo "[deploy] config changed - restarting proxy"
+    if [ -n "${BW_CLIENTID:-}" ] && [ -n "${BW_CLIENTSECRET:-}" ] && [ -n "${BW_PASSWORD:-}" ]; then
+        "${ROOT}/scripts/load_secrets_from_bitwarden.sh" || echo "[deploy] WARNING: Bitwarden fetch failed - using existing .env if present"
+    fi
     podman rm -f gvincent_litellm_1 2>/dev/null || true
     podman-compose -p gvincent -f "${ROOT}/docker-compose.yml" up -d 2>&1 | tail -1
     for i in $(seq 1 60); do
@@ -27,6 +30,9 @@ if [ "$CHANGED" -eq 1 ]; then
         fi
         sleep 1
     done
+    if [ -n "${BW_CLIENTID:-}" ]; then
+        shred -u "${ROOT}/.env" 2>/dev/null || rm -f "${ROOT}/.env"
+    fi
 fi
 
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then

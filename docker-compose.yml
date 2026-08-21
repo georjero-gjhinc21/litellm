@@ -4,9 +4,12 @@
 # Start it directly:
 #   curl -sSL https://docs.litellm.ai/docker-compose.yml | docker compose -f - up -d
 #
-# The credentials below are placeholders for local evaluation. Before any real
-# use, download this file and set LITELLM_MASTER_KEY and LITELLM_SALT_KEY to
-# long random values, and pin the image to a release tag instead of `latest`.
+# LITELLM_MASTER_KEY, LITELLM_SALT_KEY, UI_USERNAME and UI_PASSWORD are no
+# longer hardcoded here - scripts/load_secrets_from_bitwarden.sh writes them
+# (plus OPENCODE_API_KEY) to .env from Bitwarden immediately before `up`, and
+# pull_deploy.sh/run_daily.sh shred .env again right after the container has
+# picked them up. Before any real use, pin the image to a release tag instead
+# of `latest`.
 services:
   litellm:
     image: docker.litellm.ai/berriai/litellm-database:latest
@@ -15,11 +18,11 @@ services:
     env_file:
       - .env
     environment:
-      LITELLM_MASTER_KEY: sk-1234
-      LITELLM_SALT_KEY: sk-0047bb03ec26dc3d85b6402478134837d4e62da8cbb6f07c
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:?run scripts/load_secrets_from_bitwarden.sh first}
+      LITELLM_SALT_KEY: ${LITELLM_SALT_KEY:?run scripts/load_secrets_from_bitwarden.sh first}
       UI_VISIBLE_MODELS: "True"
-      UI_USERNAME: gvincent
-      UI_PASSWORD: sk-2345
+      UI_USERNAME: ${UI_USERNAME:?run scripts/load_secrets_from_bitwarden.sh first}
+      UI_PASSWORD: ${UI_PASSWORD:?run scripts/load_secrets_from_bitwarden.sh first}
       DATABASE_URL: postgresql://litellm:litellm@db:5432/litellm
       STORE_MODEL_IN_DB: "False"
       CONFIG_FILE: /app/config.yaml

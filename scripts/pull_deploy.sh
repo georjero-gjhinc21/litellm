@@ -19,14 +19,15 @@ if [ "$old_sha" = "$new_sha" ]; then
     echo "[deploy] no new config"; exit 0
 fi
 
-if [ ! -f "${ROOT}/.env" ]; then
-    echo "[deploy] WARNING: .env missing on this host - proxy cannot resolve OPENCODE_API_KEY"
-fi
-
 changed=0
 git diff --quiet "$old_sha" "$new_sha" -- config.yaml 2>/dev/null || changed=1
 if [ "$changed" -eq 1 ]; then
     echo "[deploy] config.yaml changed - restarting proxy"
+    if [ -n "${BW_CLIENTID:-}" ] && [ -n "${BW_CLIENTSECRET:-}" ] && [ -n "${BW_PASSWORD:-}" ]; then
+        "${ROOT}/scripts/load_secrets_from_bitwarden.sh" || echo "[deploy] WARNING: Bitwarden fetch failed - using existing .env if present"
+    elif [ ! -f "${ROOT}/.env" ]; then
+        echo "[deploy] WARNING: no .env and no BW_CLIENTID/BW_CLIENTSECRET/BW_PASSWORD in env - proxy cannot start"
+    fi
     podman rm -f gvincent_litellm_1 2>/dev/null || true
     podman-compose -p gvincent -f "${ROOT}/docker-compose.yml" up -d 2>&1 | tail -1
     for i in $(seq 1 60); do
@@ -35,6 +36,12 @@ if [ "$changed" -eq 1 ]; then
         fi
         sleep 1
     done
+    # .env is only needed at container-creation time; podman has already
+    # copied the values into the running container's own env, so shred the
+    # host-disk copy rather than leaving decrypted secrets sitting there.
+    if [ -n "${BW_CLIENTID:-}" ]; then
+        shred -u "${ROOT}/.env" 2>/dev/null || rm -f "${ROOT}/.env"
+    fi
 else
     echo "[deploy] no config.yaml change - nothing to restart"
 fi
