@@ -112,6 +112,27 @@ def probe(model: str, key: str, timeout: int = 60) -> bool:
         time.sleep(0.4)
 
 
+# Tier order from most- to least-capable; a model that overflows its context
+# falls back to the next tiers down, cheapest/smallest-context last.
+TIER_ORDER = ["REASONING", "COMPLEX", "MEDIUM", "SIMPLE"]
+
+
+def build_context_window_fallbacks(tiers: dict) -> list:
+    def as_list(v):
+        return v if isinstance(v, list) else [v] if v else []
+
+    fallbacks = []
+    for i, tier in enumerate(TIER_ORDER):
+        models = as_list(tiers.get(tier))
+        if not models:
+            continue
+        lower = [m for t in TIER_ORDER[i + 1:] for m in as_list(tiers.get(t))]
+        if lower:
+            for m in models:
+                fallbacks.append({m: list(lower)})
+    return fallbacks
+
+
 def build_config(live: list) -> dict | None:
     if not live:
         return None
@@ -133,7 +154,8 @@ def build_config(live: list) -> dict | None:
         "complexity_router_default_model": default}})
     return {"model_list": model_list,
             "router_settings": {"routing_strategy": "usage-based-routing-v2",
-                                "num_retries": 2, "cooldown_time": 10, "timeout": 60},
+                                "num_retries": 2, "cooldown_time": 10, "timeout": 60,
+                                "context_window_fallbacks": build_context_window_fallbacks(tiers)},
             "litellm_settings": {}, "general_settings": {"health_check_interval": 30}}
 
 
