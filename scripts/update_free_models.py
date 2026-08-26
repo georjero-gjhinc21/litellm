@@ -19,6 +19,11 @@ import time
 import urllib.request
 import urllib.error
 
+try:
+    from bitwarden_sdk import BitwardenClient
+except ImportError:
+    BitwardenClient = None
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ENV = ROOT / ".env"
 CONFIG = ROOT / "config.yaml"
@@ -54,6 +59,11 @@ def get_opencode_key() -> str:
     env_key = os.environ.get("OPENCODE_API_KEY", "").strip()
     if env_key:
         return env_key
+
+    bw_key = _get_opencode_key_from_bitwarden()
+    if bw_key:
+        return bw_key
+
     if not ENV.exists():
         sys.exit(f"Missing {ENV}")
     for line in ENV.read_text().splitlines():
@@ -61,7 +71,29 @@ def get_opencode_key() -> str:
             v = line.split("=", 1)[1].strip()
             if v and "REPLACE" not in v:
                 return v
-    sys.exit("OPENCODE_API_KEY missing/unset in .env")
+    sys.exit("OPENCODE_API_KEY missing/unset in .env and not found in Bitwarden")
+
+
+def _get_opencode_key_from_bitwarden() -> str | None:
+    if BitwardenClient is None:
+        return None
+
+    org_id = os.environ.get("BITWARDEN_ORG_ID", "").strip()
+    access_token = os.environ.get("BITWARDEN_ACCESS_TOKEN", "").strip()
+    secret_key = os.environ.get("BITWARDEN_SECRET_KEY", "OPENCODE_API_KEY").strip()
+
+    if not org_id or not access_token:
+        return None
+
+    try:
+        client = BitwardenClient()
+        client.authenticate(access_token, org_id)
+        secret = client.secrets().get(secret_key)
+        if secret and secret.value:
+            return secret.value
+    except Exception:
+        pass
+    return None
 
 
 def fetch_json(url, key=None, timeout=30):

@@ -25,12 +25,15 @@ jobs:
           python-version: "3.12"
 
       - name: Install deps
-        run: pip install pyyaml
+        run: pip install -r requirements.txt
 
       - name: Run free-model updater
         id: update
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          BITWARDEN_ORG_ID: ${{ secrets.BITWARDEN_ORG_ID }}
+          BITWARDEN_ACCESS_TOKEN: ${{ secrets.BITWARDEN_ACCESS_TOKEN }}
+          BITWARDEN_SECRET_KEY: ${{ secrets.BITWARDEN_SECRET_KEY }}
         run: |
           python3 scripts/update_free_models.py || [ $? -eq 1 ] || true
 
