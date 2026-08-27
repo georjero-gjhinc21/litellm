@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T04:08:43.873438+00:00",
+  "generated_at": "2026-08-27T14:23:45.011669+00:00",
   "candidates": [
     "big-pickle",
     "deepseek-v4-flash-free",
@@ -8,8 +8,7 @@
     "mimo-v2.5-free",
     "muse-spark-1.2-contributor-free",
     "nemotron-3-ultra-free",
-    "nemotron-3.5-lightning-free",
-    "x-preview-f-free"
+    "nemotron-3.5-lightning-free"
   ],
   "live": [
     "deepseek-v4-flash-free",
@@ -24,7 +23,6 @@
   "dead": [
     "hy3-free",
     "muse-spark-1.2-contributor-free",
-    "nemotron-3.5-lightning-free",
-    "x-preview-f-free"
+    "nemotron-3.5-lightning-free"
   ]
 }
