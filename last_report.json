@@ -1,9 +1,8 @@
 {
-  "generated_at": "2026-08-29T10:17:01.418327+00:00",
+  "generated_at": "2026-08-30T09:22:16.843014+00:00",
   "candidates": [
     "big-pickle",
     "deepseek-v4-flash-free",
-    "hy3-free",
     "laguna-s-2.1-free",
     "ling-3.0-flash-fin-free",
     "mimo-v2.5-free",
@@ -22,7 +21,6 @@
     "longcat-2.0-free"
   ],
   "dead": [
-    "hy3-free",
     "ling-3.0-flash-fin-free",
     "muse-spark-1.2-contributor-free",
     "nemotron-3.5-lightning-free"
