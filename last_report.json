@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-18T08:23:42.100581+00:00",
+  "generated_at": "2026-09-19T08:11:27.491668+00:00",
   "candidates": [
     "big-pickle",
-    "deepseek-v4-flash-free",
+    "jev-1.13-free",
     "ling-3.0-flash-fin-free",
     "mimo-v2.5-free",
     "muse-spark-1.2-contributor-free",
@@ -21,6 +21,7 @@
     "longcat-2.0-free"
   ],
   "dead": [
+    "jev-1.13-free",
     "ling-3.0-flash-fin-free",
     "muse-spark-1.2-contributor-free",
     "muse-spark-1.3-contributor-free",
