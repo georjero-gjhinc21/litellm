@@ -1,14 +1,12 @@
 {
-  "generated_at": "2026-09-29T10:00:50.461605+00:00",
+  "generated_at": "2026-09-30T09:53:08.338994+00:00",
   "candidates": [
     "big-pickle",
-    "ling-3.0-flash-fin-free",
     "longcat-2.5-preview-free",
     "mimo-v2.5-free",
     "mimo-v2.6-flash-free",
     "muse-spark-1.2-contributor-free",
     "muse-spark-1.3-contributor-free",
-    "nemotron-3-ultra-free",
     "nemotron-3.5-lightning-free",
     "space-bunny-free"
   ],
@@ -23,7 +21,6 @@
     "longcat-2.0-free"
   ],
   "dead": [
-    "ling-3.0-flash-fin-free",
     "longcat-2.5-preview-free",
     "mimo-v2.6-flash-free",
     "muse-spark-1.2-contributor-free",
