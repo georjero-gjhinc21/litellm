@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-10-01T10:20:12.807700+00:00",
+  "generated_at": "2026-10-02T09:57:18.462673+00:00",
   "candidates": [
     "big-pickle",
+    "fledge-alpha-free",
     "longcat-2.5-preview-free",
     "mimo-v2.5-free",
     "mimo-v2.6-flash-free",
@@ -21,6 +22,7 @@
     "longcat-2.0-free"
   ],
   "dead": [
+    "fledge-alpha-free",
     "longcat-2.5-preview-free",
     "mimo-v2.6-flash-free",
     "muse-spark-1.2-contributor-free",
