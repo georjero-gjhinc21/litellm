@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-14T08:53:57.723352+00:00",
+  "generated_at": "2026-10-15T08:29:03.117185+00:00",
   "candidates": [
     "big-pickle",
     "cat-jam-free",
-    "ling-3.1-flash-free",
+    "deepseek-v4.1-flash-free",
     "longcat-2.5-preview-free",
     "mimo-v2.6-flash-free",
     "muse-spark-1.2-contributor-free",
@@ -24,7 +24,7 @@
   ],
   "dead": [
     "cat-jam-free",
-    "ling-3.1-flash-free",
+    "deepseek-v4.1-flash-free",
     "longcat-2.5-preview-free",
     "mimo-v2.6-flash-free",
     "muse-spark-1.2-contributor-free",
