@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T08:45:48.024482+00:00",
+  "generated_at": "2026-10-22T08:48:07.340658+00:00",
   "candidates": [
     "beam-free",
     "big-pickle",
@@ -8,6 +8,7 @@
     "deepseek-v4.1-flash-free",
     "exo-free",
     "fledge-alpha-free",
+    "flint-40b-free",
     "glm-4.7-free",
     "glm-5-free",
     "glm-5.3-flash-free",
@@ -63,6 +64,7 @@
     "deepseek-v4.1-flash-free",
     "exo-free",
     "fledge-alpha-free",
+    "flint-40b-free",
     "glm-4.7-free",
     "glm-5-free",
     "glm-5.3-flash-free",
