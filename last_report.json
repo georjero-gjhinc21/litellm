@@ -1,9 +1,10 @@
 {
-  "generated_at": "2026-11-03T11:09:23.013088+00:00",
+  "generated_at": "2026-11-05T11:17:35.666532+00:00",
   "candidates": [
     "beam-free",
     "big-pickle",
     "cat-jam-free",
+    "crouton-alpha-free",
     "deepseek-v4-flash-free",
     "deepseek-v4.1-flash-free",
     "exo-free",
@@ -62,6 +63,7 @@
   "dead": [
     "beam-free",
     "cat-jam-free",
+    "crouton-alpha-free",
     "deepseek-v4.1-flash-free",
     "exo-free",
     "fledge-alpha-free",
