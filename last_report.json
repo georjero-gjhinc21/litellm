@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T11:15:31.140163+00:00",
+  "generated_at": "2026-11-07T10:30:59.698131+00:00",
   "candidates": [
     "beam-free",
     "big-pickle",
@@ -16,6 +16,8 @@
     "grok-code",
     "hy3-free",
     "hy3-preview-free",
+    "iceman-free",
+    "inkling-2-small-free",
     "kimi-k2.5-free",
     "laguna-s-2.1-free",
     "ling-2.6-flash-free",
@@ -74,6 +76,8 @@
     "grok-code",
     "hy3-free",
     "hy3-preview-free",
+    "iceman-free",
+    "inkling-2-small-free",
     "kimi-k2.5-free",
     "ling-2.6-flash-free",
     "ling-3.0-flash-fin-free",
