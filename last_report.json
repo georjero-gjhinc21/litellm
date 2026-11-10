@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T11:55:05.803334+00:00",
+  "generated_at": "2026-11-10T11:28:43.744945+00:00",
   "candidates": [
     "beam-free",
     "big-pickle",
@@ -27,6 +27,7 @@
     "ling-3.1-flash-free",
     "ll-alpha-free",
     "longcat-2.0-free",
+    "longcat-2.5-free",
     "longcat-2.5-preview-free",
     "mimo-v2-flash-free",
     "mimo-v2-omni-free",
@@ -83,6 +84,7 @@
     "ling-3.0-flash-fin-free",
     "ling-3.1-flash-free",
     "ll-alpha-free",
+    "longcat-2.5-free",
     "longcat-2.5-preview-free",
     "mimo-v2-flash-free",
     "mimo-v2-omni-free",
