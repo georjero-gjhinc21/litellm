@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T11:45:28.800890+00:00",
+  "generated_at": "2026-11-23T13:23:44.114131+00:00",
   "candidates": [
     "beam-free",
     "big-pickle",
@@ -48,6 +48,7 @@
     "north-mini-code-free",
     "pulse-alpha-free",
     "qwen3.6-plus-free",
+    "qwen4-max-free",
     "ring-2.6-1t-free",
     "space-bunny-free",
     "step-5-preview-free",
@@ -105,6 +106,7 @@
     "north-mini-code-free",
     "pulse-alpha-free",
     "qwen3.6-plus-free",
+    "qwen4-max-free",
     "ring-2.6-1t-free",
     "space-bunny-free",
     "step-5-preview-free",
